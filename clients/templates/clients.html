@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-   {% for client in clients_list %}
-        <div>{{ client.maker }}</div>
-   {% endfor %}
-</body>
-</html>
+
+{% extends 'base.html' %}
+{% block page %}
+    {% for client in clients %}
+        <div id="img">
+            {{ client.name }}
+            {% if client.photo %}
+                <br/>
+                <img height="100px" src="{{ client.photo.url }}">
+            {% endif %}
+        </div>
+    <hr>
+    {% endfor %}
+
+{% endblock %}

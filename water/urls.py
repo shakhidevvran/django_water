@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from core.views import contacts, about, makers_list
 from clients.views import clients_list
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,3 +27,6 @@ urlpatterns = [
     path('makers/', makers_list),
     path('clients/', clients_list)
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
